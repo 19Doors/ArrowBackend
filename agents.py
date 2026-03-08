@@ -424,7 +424,7 @@ async def session_handler(ctx: agents.JobContext):
         tts=make_tts(),
         vad=silero.VAD.load(),
         mcp_servers=[exa_mcp],
-        use_tts_aligned_transcript=True
+        # use_tts_aligned_transcript=True
     )
 
     # Byte stream handler can be registered before connect — it just
