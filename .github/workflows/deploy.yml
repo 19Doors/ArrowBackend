@@ -1,4 +1,4 @@
-name: Deploy to EC2
+name: Deploy Agents
 
 on:
   push:
@@ -17,4 +17,5 @@ jobs:
           script: |
             cd ~/ArrowBackend
             git pull origin master
-            pm2 restart agents
+            sudo systemctl restart agents
+            sudo systemctl status agents --no-pager
