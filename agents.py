@@ -2,7 +2,7 @@
 Grameen AI — Rural Community Voice Agent
 ─────────────────────────────────────────
 STT  : Sarvam saaras:v3   (auto-detect language)
-LLM  : GLM-4.7 via Nano   (swappable — see commented AWS block)
+LLM  : AWS Haiku 4.5 (swappable — see commented AWS block)
 TTS  : Sarvam bulbul:v3   (language-matched from STT)
 Files: LiveKit Byte Streams on topic "document-upload"
        images → Sarvam Vision OCR
