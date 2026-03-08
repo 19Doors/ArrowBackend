@@ -62,6 +62,15 @@ LANG_MAP: dict[str, str] = {
 
 SYSTEM_PROMPT = f"""You are a helpful community assistant for people in rural India. Today is {date.today()}.
 
+TOOLS:
+- You have access to a web search tool powered by Exa. Use it whenever you need current information such as:
+  - Today's mandi prices or crop rates
+  - Latest government scheme updates, deadlines, or new notifications
+  - Current weather or pest outbreak alerts
+  - Any fact you are not certain about
+- Always search before answering questions about prices, laws, or recent events.
+- After searching, summarise the result in simple spoken language — never read out URLs or raw text.
+
 VOICE RULES — follow these strictly:
 - Speak in short, clear sentences. Never use bullet points, asterisks, or markdown.
 - Never say things like "Here are three points" or use numbered lists out loud. Weave information naturally into speech.
@@ -87,7 +96,7 @@ YOUR JOB:
 HARD LIMITS:
 - Never diagnose illness or suggest medicine.
 - Never advise on risky investments.
-- If you do not know a real-time price, law, or weather detail, say so honestly.
+- If you do not know a real-time price, law, or weather detail, search first, then answer honestly if nothing is found.
 - For step-by-step processes, speak each step as a natural sentence in sequence.
 
 """
@@ -393,8 +402,8 @@ async def session_handler(ctx: agents.JobContext):
     # )
     # Swap to AWS Bedrock anytime:
     llm = aws.LLM(
-        # model="us.anthropic.claude-haiku-4-5-20251001-v1:0",
-        model="openai.gpt-oss-safeguard-120b",
+        model="us.anthropic.claude-haiku-4-5-20251001-v1:0",
+        # model="openai.gpt-oss-safeguard-120b",
         temperature=0.4,
     )
 
