@@ -404,8 +404,8 @@ async def session_handler(ctx: agents.JobContext):
     # )
     # Swap to AWS Bedrock anytime:
     llm = aws.LLM(
-        model="us.anthropic.claude-haiku-4-5-20251001-v1:0",
-        # model="openai.gpt-oss-safeguard-120b",
+        # model="us.anthropic.claude-haiku-4-5-20251001-v1:0",
+        model="openai.gpt-oss-safeguard-120b",
         temperature=0.4,
     )
 
